@@ -1,0 +1,288 @@
+
+
+<html>
+    <head>
+        <style>
+            body{
+                background-color: whitesmoke;
+
+            }
+            .topbar{
+                display:flex;
+                justify-content: space-between;
+                width:100%;
+                height:80px;
+                background-color: white;
+                border:1px solid white
+            }
+            nav a{
+                margin:0 15px;
+                font-weight: bold;
+            }
+         .hero{
+  
+    background-image:url("bmi.jpg.png");
+    width:100%;
+    height:200px;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    align-items:center;
+    padding-left:60px;
+}
+            .heading{
+                padding:30px;
+
+            }
+            .enter{
+                border:1px solid white;
+                text-align: center;
+                border-radius: 3px ;
+                background-color: green;
+                color: white;
+                width:80%;
+                padding:20px;
+
+            }
+            button{
+                background-color: green;
+                color:white;
+                width:90%;
+                border-radius: 5px;
+                border:1px solid white;
+                padding:10px;
+                margin-bottom: 2px;
+
+            }
+            .input
+                {
+                    border:1px solid #ddd;
+                    border-radius:10px;
+                    width:45%;
+                    padding:20px;
+                    background:white;
+                    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+                    height:200px;
+                    }
+                    .result{
+                    border:1px solid #ddd;
+                    border-radius:10px;
+                    width:45%;
+                    padding:20px;
+                    background:white;
+                    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+                    height:200px;
+                    display:flex;
+                    justify-content: space-around;
+                    }
+                    #height,#weight{
+                        width:90%;
+                    }
+           
+            .val{
+                border:1px solid white;
+                padding:10px;
+            }
+            .status{
+                border:1px solid white;
+                padding:10px;
+            }
+            .container{
+                display:flex;
+                gap:30px;
+                padding:20px;
+                align-items:flex-start;
+                }
+            table{
+            border: 2px solid grey;
+            border-collapse: collapse;
+            
+            padding:10px;
+            width:100%
+
+
+            }
+           .bmi-chart{
+            width:100%;
+            border-collapse: collapse;
+           }
+           .bmi-chart th, .bmi-chart td{
+            border:1px solid #ddd;
+            padding:12px;
+            text-align:center;
+
+           }
+           .under{
+            background-color: #eaf5ff;
+            color:#2b6cb0;
+           }
+           .normal{
+            background-color: #eaf5ff;
+            color:#2f855a;
+           }
+           .over{
+            background-color: #fff7e6;
+            color:#dd6b20;
+           }
+           .obese1{
+            background-color: #fff0e6;
+            color:#c05621;
+           }
+           .obese2{
+            background-color: #ffeaea;
+            color:#c23030;
+           }
+           footer{
+            border:1px solid white;
+
+            width:100%;
+            background-color:green;
+           
+            text-align: center;
+            margin-top: 20px;
+            color:white;
+            padding:10px;
+           }
+           @media(max-width:768px){
+            .container{
+                flex-direction:column;
+            }
+
+            .input,
+            .result{
+                width:90%;
+            }
+
+                .hero{
+                    padding:20px;
+                }
+        }
+            
+        </style>
+
+    </head>
+    <body>
+        <div>
+            <div class="topbar"><h2><span>BMI</span> Calculator</h2>
+            <nav style="padding: 20px;">
+                <a href="#">Home</a>
+                <a href="#">Calculator</a>
+                <a href="#">About us</a>
+                <a href="#">Contact</a>
+            </nav></div>
+            <div class="hero">
+                <div class="heading">
+                    <h1 style="color:green"><span>BMI</span> Calculator</h1><p>Calculate your BodyMass Index and</p>
+                    <p> Check your health status</p></div>
+                
+            </div>
+            <div class="container"> 
+
+                <div class="input">
+                    <div class="enter"> Enter your Details</div>
+                    <div class="val"> <label>Height(cm)</label><br/>
+                        <input type="number" placeholder="Enter your height in cm" id="height"/><br/><br/>
+                        <label> Weight(in kg)</label><br/>
+                        <input type="number" placeholder="Enter your weight in kg" id="weight"/> <br/><br/>
+                        <div class="btn">
+    
+                            <button onclick="calculateBMI()" > Calculate BMI</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result">
+                  
+                   
+                    <div class="val"> <h3 style="text-align: center; "><h3 style="color:green"> Your BMI result</h3> <h2 > <strong>BMI</strong></h2> <h1 id="value" style="font-weight: 200; color:green">0.00  </h1></div>
+                    <div class="status"> <h3> Health Status</h3><p id="health" style="color:Green">-</p><h3>Category</h3><p id="category" style="color:green">-</p></div>
+                </div>
+             </div>
+          
+                <div class="bmi-chart">
+            
+                    <div > <h3> BMI Category chart</h3></div>
+                    <div >
+                        <table>
+                            <tr>
+                                <th>BMI Range</th>
+                                <td class="under"> Below 18.5</td>
+                                <td class="normal">18.5-24.9</td>
+                                 <td class="over">25.0-25.9</td>
+                                  <td class="obese1">30.0-34.9</td>
+                                   <td class="obese2">35.0 and above</td>
+                            </tr>
+                            <tr> 
+                                <th> Category</th>
+                                <td class="under"> Underweight</td>
+                                <td class="normal"> Normal</td>
+                                <td class="over"> Overweight</td>
+                                <td class="obese1">Obesity(class-1)</td>
+                                <td class="obese2"> Obesity (class-2)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="footer"> <footer> 2024 BMI Calculator All Rights Reserved</footer></div>
+            
+
+        </div>
+        <script>
+        function calculateBMI()
+        {
+            let h=parseFloat(document.getElementById("height").value);
+            let w=parseFloat(document.getElementById("weight").value);
+            if(!h || !w)
+        {
+            alert("Enter valid input");
+            return;
+        }
+            let hm=h/100;
+            let bmi=w/(hm*hm);
+            document.getElementById("value").innerHTML=bmi.toFixed(2);
+            let category="";
+            let health=""
+             if(bmi <18.5)
+            {
+            category="underweight";
+            health="Need to gain Weight";
+              }
+             else  if(bmi >=18.5 && bmi<24.9)
+            {
+            category="normalWeight";
+            health="Healthy";
+              }
+               else  if(bmi >=25.0 && bmi<25.9)
+            {
+                 category="OverWeight";
+                 health="Consider weight management";
+
+              }
+
+               else  if(bmi >=30.0 && bmi<34.9)
+            {
+                 category="obesity(class-1)";
+                 health="High Health Risk";
+
+              }
+              else{
+                category="Obesity(class-2)";
+                health="Very High Health Risk";
+              }
+              document.getElementById("category").innerHTML=category;
+              document.getElementById("health").innerHTML=health;
+
+
+            
+
+
+            
+        }
+
+
+        </script>
+
+
+    </body>
+</html>
